@@ -10,7 +10,9 @@
 # print(result.text)
 
 from transformers import pipeline
-generator = pipeline('text-generation', model ='EleutherAI/gpt-neo-2.7B')
-post = "This is my first blog post, I'm really excited!"
-result = generator(post, max_length=50, do_sample=True, temperature=0.9)
-print(result)
+
+generator = pipeline('text-generation', model='EleutherAI/gpt-neo-2.7B')
+post = "implementing a linked list"
+result = generator(post, max_length=500, do_sample=True, temperature=0.9)
+
+print(result[0]['generated_text'])
